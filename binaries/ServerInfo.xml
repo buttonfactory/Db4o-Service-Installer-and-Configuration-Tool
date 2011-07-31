@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<server>
+  <host>localhost</host>
+  <file>testdb.db4o</file>
+  <port>4433</port>
+  <user>db4o</user>
+  <pass>jcK/vbwWXvA=</pass>
+</server>
