@@ -1,0 +1,24 @@
+﻿<Page x:Class="Db4oConfig.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="400"
+	Title="HomePage">
+        <Grid Margin="0,27,12,52" Width="336" Height="190">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*" />
+            <RowDefinition Height="321*" />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images\db4o.png" Opacity="0.3"/>
+        </Grid.Background>
+        <Button Content="Install Service" Height="23" HorizontalAlignment="Left" Margin="100,29,0,0" Name="btnInstall" VerticalAlignment="Top" Width="139" Click="btnInstall_Click" Grid.Row="1" />
+            <Button Content="Start  Service" Height="23" HorizontalAlignment="Left" Margin="100,58,0,0" Name="btnStart" VerticalAlignment="Top" Width="139" Click="btnStart_Click" Grid.Row="1" />
+            <Button Content="Stop Service" Height="23" HorizontalAlignment="Left" Margin="100,87,0,0" Name="btnStop" VerticalAlignment="Top" Width="139" Click="btnStop_Click" Grid.Row="1" />
+            <Button Content="Configure Service" Height="23" HorizontalAlignment="Left" Margin="100,0,0,0" Name="btnConf" VerticalAlignment="Top" Width="139" Click="btnConf_Click" Grid.Row="1" />
+            <Button Content="Uninstall Service" Height="23" HorizontalAlignment="Left" Margin="100,116,0,0" Name="btnUninstall" VerticalAlignment="Top" Width="139" Click="btnUninstall_Click" Grid.Row="1" />
+        <Button Content="View Status" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="101,145,0,0" Name="btnStatus" VerticalAlignment="Top" Width="138" Click="btnStatus_Click" />
+    </Grid>
+</Page>

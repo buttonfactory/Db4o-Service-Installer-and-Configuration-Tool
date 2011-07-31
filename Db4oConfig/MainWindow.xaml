@@ -1,0 +1,5 @@
+﻿<NavigationWindow x:Class="Db4oConfig.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Db4o Service Config Tool" Height="350" Width="400" Source="HomePage.xaml" Icon="/Db4oConfig;component/Images/db4o.ico">
+</NavigationWindow>

@@ -1,0 +1,93 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
+using System.Text;
+using System.Security.Cryptography;
+using System.Xml;
+
+namespace Db4oService
+{
+    public class ServerInfo
+    {
+        
+        public static string path = System.IO.Path.GetDirectoryName(
+         System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+
+
+        public static const XDocument xml = XDocument.Load(ServerInfo.path + "\\ServerInfo.xml");
+        public XmlDocument doc;
+    
+        public static XElement getElement()
+        {
+            return (from s in xml.Descendants("server")
+                    select s).FirstOrDefault();
+        }
+
+        public void setElement(string element, string text)
+        {
+            XmlElement xelement = doc.CreateElement(element);
+            xelement.InnerText = text;
+            doc.DocumentElement.AppendChild(xelement);
+        }
+
+        public string Host
+        {
+            get
+            {
+                return getElement().Element("host").Value;
+            }
+        }
+
+        public string File
+        {
+            get
+            {
+                return getElement().Element("file").Value;
+            }
+        }
+
+        public int Port
+        {
+            get
+            {
+                return Convert.ToInt32(getElement().Element("port").Value);
+            }
+        }
+
+        public string User
+        {
+            get
+            {
+                return getElement().Element("user").Value;
+            }
+        }
+
+        public string Pass
+        {
+            get
+            {
+                string secret = getElement().Element("pass").Value;
+                return Scrambler.Scramble.Decrypt(secret);
+            }
+        }
+
+
+        public void createXML() {
+           
+            doc.LoadXml("<server><host>localhost</host></server>");
+        }
+
+
+        public void saveXML() {
+            doc.PreserveWhitespace = false;
+            XmlDocument ServerInfo = new XmlDocument();
+            ServerInfo.LoadXml(doc.InnerXml);
+            ServerInfo.Save("ServerInfo.xml");
+        }
+         
+    }
+
+}
+
+
